@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 30% 99%;
+    --foreground: 24 10% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 24 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 10% 10%;
+
+    --primary: 24 10% 10%;
+    --primary-foreground: 40 30% 99%;
+
+    --secondary: 36 30% 96%;
+    --secondary-foreground: 24 10% 10%;
+
+    --muted: 36 16% 94%;
+    --muted-foreground: 24 5% 40%;
+
+    --accent: 38 60% 50%;
+    --accent-foreground: 24 10% 10%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 30 10% 88%;
+    --input: 30 10% 88%;
+    --ring: 38 60% 50%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 24 10% 7%;
+    --foreground: 36 20% 96%;
+
+    --card: 24 10% 9%;
+    --card-foreground: 36 20% 96%;
+
+    --popover: 24 10% 9%;
+    --popover-foreground: 36 20% 96%;
+
+    --primary: 38 60% 60%;
+    --primary-foreground: 24 10% 7%;
+
+    --secondary: 24 8% 14%;
+    --secondary-foreground: 36 20% 96%;
+
+    --muted: 24 8% 14%;
+    --muted-foreground: 30 10% 65%;
+
+    --accent: 38 60% 55%;
+    --accent-foreground: 24 10% 7%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 36 20% 96%;
+
+    --border: 24 8% 18%;
+    --input: 24 8% 18%;
+    --ring: 38 60% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-playfair), Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--accent) / 0.15) 50%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2.5s linear infinite;
+  }
+}
