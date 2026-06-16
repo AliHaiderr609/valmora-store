@@ -29,6 +29,6 @@ export const useRecentlyViewed = create<State>()(
         }),
       clear: () => set({ items: [] }),
     }),
-    { name: "valmora-recent", storage: createJSONStorage(() => localStorage) }
+    { name: "Vailmora-recent", storage: createJSONStorage(() => localStorage) }
   )
 );

@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 const host = process.env.SMTP_HOST;
 const user = process.env.SMTP_USER;
 const pass = process.env.SMTP_PASSWORD;
-const from = process.env.SMTP_FROM ?? "Vailmora <no-reply@valmora.com>";
+const from = process.env.SMTP_FROM ?? "Vailmora <no-reply@Vailmora.com>";
 
 const transporter =
   host && user && pass

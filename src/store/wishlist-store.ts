@@ -37,6 +37,6 @@ export const useWishlist = create<WishlistState>()(
       has: (productId) => !!get().items.find((x) => x.productId === productId),
       clear: () => set({ items: [] }),
     }),
-    { name: "valmora-wishlist", storage: createJSONStorage(() => localStorage) }
+    { name: "Vailmora-wishlist", storage: createJSONStorage(() => localStorage) }
   )
 );

@@ -1,4 +1,4 @@
-// Valmora — Prisma schema
+// Vailmora — Prisma schema
 // PostgreSQL
 
 generator client {

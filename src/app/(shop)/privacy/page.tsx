@@ -22,7 +22,7 @@ export default function PrivacyPage() {
         <h2 className="font-serif text-2xl">Your rights</h2>
         <p>
           You may request access, correction or deletion of your data at any time by emailing
-          support@valmora.com.
+          support@Vailmora.com.
         </p>
       </article>
     </div>

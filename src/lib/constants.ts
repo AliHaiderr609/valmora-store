@@ -4,14 +4,14 @@ export const SITE = {
     "Vailmora — premium dynamic fashion for Men, Women and Boys. Discover curated collections, latest trends, and exclusive seasonal sales.",
   url: process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000",
   ogImage: "/og.png",
-  email: "support@valmora.com",
+  email: "support@Vailmora.com",
   phone: "+1 (555) 010-0100",
   address: "123 Fashion Ave, New York, NY 10001",
   social: {
-    instagram: "https://instagram.com/valmora",
-    facebook: "https://facebook.com/valmora",
-    twitter: "https://twitter.com/valmora",
-    youtube: "https://youtube.com/@valmora",
+    instagram: "https://instagram.com/Vailmora",
+    facebook: "https://facebook.com/Vailmora",
+    twitter: "https://twitter.com/Vailmora",
+    youtube: "https://youtube.com/@Vailmora",
   },
 };
 

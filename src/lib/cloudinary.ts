@@ -11,7 +11,7 @@ if (process.env.CLOUDINARY_CLOUD_NAME) {
 
 export async function uploadToCloudinary(
   file: Buffer,
-  folder = "valmora"
+  folder = "Vailmora"
 ): Promise<{ url: string; publicId: string }> {
   if (!process.env.CLOUDINARY_CLOUD_NAME) {
     throw new Error("Cloudinary not configured. Set CLOUDINARY_* env vars.");

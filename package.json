@@ -1,8 +1,8 @@
 {
-  "name": "valmora-store",
+  "name": "Vailmora-store",
   "version": "1.0.0",
   "private": true,
-  "description": "Valmora — premium dynamic fashion e-commerce platform (Men / Women / Boys).",
+  "description": "Vailmora — premium dynamic fashion e-commerce platform (Men / Women / Boys).",
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",

@@ -1,5 +1,5 @@
 /**
- * Valmora seed
+ * Vailmora seed
  *
  * Run with:
  *   npm run db:seed
@@ -78,7 +78,7 @@ const SAMPLE_PRODUCTS: Array<{
     stock: 32,
     gender: "WOMEN",
     categoryName: "Dresses",
-    brandName: "Atelier Valmora",
+    brandName: "Atelier Vailmora",
     sizes: ["XS", "S", "M", "L"],
     colors: ["Black", "Gold", "Beige"],
     fabric: "100% Mulberry silk",
@@ -97,7 +97,7 @@ const SAMPLE_PRODUCTS: Array<{
     stock: 18,
     gender: "WOMEN",
     categoryName: "Knitwear",
-    brandName: "Atelier Valmora",
+    brandName: "Atelier Vailmora",
     sizes: ["S", "M", "L"],
     colors: ["Beige", "Black", "Gray", "Maroon"],
     fabric: "Grade-A cashmere",
@@ -154,7 +154,7 @@ const SAMPLE_PRODUCTS: Array<{
     stock: 60,
     gender: "MEN",
     categoryName: "Shirts",
-    brandName: "Atelier Valmora",
+    brandName: "Atelier Vailmora",
     sizes: ["S", "M", "L", "XL", "XXL"],
     colors: ["White", "Navy", "Beige"],
     fabric: "100% Cotton",
@@ -192,7 +192,7 @@ const SAMPLE_PRODUCTS: Array<{
     stock: 200,
     gender: "MEN",
     categoryName: "T-Shirts",
-    brandName: "Atelier Valmora",
+    brandName: "Atelier Vailmora",
     sizes: ["S", "M", "L", "XL", "XXL"],
     colors: ["White", "Black", "Gray", "Olive"],
     fabric: "100% Cotton",
@@ -210,7 +210,7 @@ const SAMPLE_PRODUCTS: Array<{
     stock: 80,
     gender: "MEN",
     categoryName: "Bottoms",
-    brandName: "Atelier Valmora",
+    brandName: "Atelier Vailmora",
     sizes: ["S", "M", "L", "XL"],
     colors: ["Beige", "Navy", "Olive"],
     fabric: "Cotton stretch",
@@ -228,7 +228,7 @@ const SAMPLE_PRODUCTS: Array<{
     stock: 100,
     gender: "BOYS",
     categoryName: "Hoodies",
-    brandName: "Little Valmora",
+    brandName: "Little Vailmora",
     sizes: ["S", "M", "L"],
     colors: ["Black", "Olive", "Navy"],
     fabric: "Fleece-back jersey",
@@ -247,7 +247,7 @@ const SAMPLE_PRODUCTS: Array<{
     stock: 70,
     gender: "BOYS",
     categoryName: "Bottoms",
-    brandName: "Little Valmora",
+    brandName: "Little Vailmora",
     sizes: ["S", "M", "L", "XL"],
     colors: ["Olive", "Beige", "Black"],
     fabric: "Cotton twill",
@@ -266,7 +266,7 @@ const SAMPLE_PRODUCTS: Array<{
     stock: 150,
     gender: "BOYS",
     categoryName: "T-Shirts",
-    brandName: "Little Valmora",
+    brandName: "Little Vailmora",
     sizes: ["S", "M", "L"],
     colors: ["White", "Navy"],
     fabric: "Cotton pique",
@@ -278,27 +278,27 @@ const SAMPLE_PRODUCTS: Array<{
 ];
 
 async function main() {
-  console.log("→ Seeding Valmora...");
+  console.log("→ Seeding Vailmora...");
 
   // Admin user
-  const adminEmail = process.env.SEED_ADMIN_EMAIL ?? "admin@valmora.com";
+  const adminEmail = process.env.SEED_ADMIN_EMAIL ?? "admin@Vailmora.com";
   const adminPassword = process.env.SEED_ADMIN_PASSWORD ?? "ChangeMe123!";
   const passwordHash = await bcrypt.hash(adminPassword, 12);
 
   await prisma.user.upsert({
     where: { email: adminEmail },
-    update: { passwordHash, role: "ADMIN", name: "Valmora Admin" },
+    update: { passwordHash, role: "ADMIN", name: "Vailmora Admin" },
     create: {
       email: adminEmail,
       passwordHash,
-      name: "Valmora Admin",
+      name: "Vailmora Admin",
       role: "ADMIN",
     },
   });
   console.log(`✓ Admin user: ${adminEmail} / ${adminPassword}`);
 
   // Brands
-  const brandData = ["Atelier Valmora", "Maison Lumiere", "Little Valmora"];
+  const brandData = ["Atelier Vailmora", "Maison Lumiere", "Little Vailmora"];
   for (const name of brandData) {
     await prisma.brand.upsert({
       where: { slug: slugify(name) },
