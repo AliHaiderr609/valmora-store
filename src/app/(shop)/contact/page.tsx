@@ -3,7 +3,7 @@ import { SITE } from "@/lib/constants";
 
 export const metadata = {
   title: "Contact us",
-  description: "Reach the Valmora team — we're here to help.",
+  description: "Reach the Vailmora team — we're here to help.",
 };
 
 export default function ContactPage() {

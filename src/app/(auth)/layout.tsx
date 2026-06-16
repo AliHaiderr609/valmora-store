@@ -21,7 +21,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
             <p className="font-serif text-3xl">
               "Premium fashion, designed to last."
             </p>
-            <p className="mt-2 text-sm text-white/80">— The Valmora Atelier</p>
+            <p className="mt-2 text-sm text-white/80">— The Vailmora Atelier</p>
           </div>
         </div>
       </div>

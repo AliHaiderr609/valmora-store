@@ -3,8 +3,8 @@ import Image from "next/image";
 import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "About Valmora",
-  description: "The story behind Valmora — premium fashion designed to last.",
+  title: "About Vailmora",
+  description: "The story behind Vailmora — premium fashion designed to last.",
 };
 
 export default function AboutPage() {
@@ -14,7 +14,7 @@ export default function AboutPage() {
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-600">Our story</p>
         <h1 className="mt-3 font-serif text-4xl md:text-5xl">Crafted to be worn, designed to last.</h1>
         <p className="mt-4 text-muted-foreground">
-          Valmora was founded with one belief: premium fashion shouldn't be a luxury. We work
+          Vailmora was founded with one belief: premium fashion shouldn't be a luxury. We work
           directly with the best ateliers in the world to bring you timeless pieces — for him,
           for her, and for the next generation.
         </p>

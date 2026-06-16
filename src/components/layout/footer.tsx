@@ -17,7 +17,7 @@ const SECTIONS: { title: string; links: { href: string; label: string }[] }[] = 
   {
     title: "Company",
     links: [
-      { href: "/about", label: "About Valmora" },
+      { href: "/about", label: "About Vailmora" },
       { href: "/blog", label: "Journal" },
       { href: "/contact", label: "Contact" },
       { href: "/careers", label: "Careers" },

@@ -17,7 +17,7 @@ export default function AdminSettingsPage() {
             <Row label="Email" value={SITE.email} />
             <Row label="Phone" value={SITE.phone} />
             <Row label="Address" value={SITE.address} />
-            <Row label="Currency" value={process.env.NEXT_PUBLIC_CURRENCY ?? "USD"} />
+            <Row label="Currency" value={process.env.NEXT_PUBLIC_CURRENCY ?? "PKR"} />
             <Row label="App URL" value={process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"} />
           </dl>
           <p className="mt-6 rounded-md border bg-secondary/30 p-3 text-xs text-muted-foreground">

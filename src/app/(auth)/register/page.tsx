@@ -32,7 +32,7 @@ export default function RegisterPage() {
         password: form.password,
         redirect: false,
       });
-      toast.success("Welcome to Valmora!");
+      toast.success("Welcome to Vailmora!");
       router.push("/");
       router.refresh();
     } catch (e) {
@@ -46,7 +46,7 @@ export default function RegisterPage() {
     <div>
       <h1 className="font-serif text-3xl">Create your account</h1>
       <p className="mt-2 text-sm text-muted-foreground">
-        Join Valmora to track orders and save favorites.
+        Join Vailmora to track orders and save favorites.
       </p>
 
       <form onSubmit={onSubmit} className="mt-8 space-y-4">

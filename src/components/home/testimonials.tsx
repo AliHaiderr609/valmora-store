@@ -7,7 +7,7 @@ const REVIEWS = [
     rating: 5,
     title: "Impeccable quality",
     body:
-      "Every Valmora piece I own feels timeless and beautifully made. The fabrics are stunning.",
+      "Every Vailmora piece I own feels timeless and beautifully made. The fabrics are stunning.",
   },
   {
     name: "James K.",

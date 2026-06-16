@@ -1,7 +1,7 @@
 export const SITE = {
-  name: process.env.NEXT_PUBLIC_APP_NAME ?? "Valmora",
+  name: process.env.NEXT_PUBLIC_APP_NAME ?? "Vailmora",
   description:
-    "Valmora — premium dynamic fashion for Men, Women and Boys. Discover curated collections, latest trends, and exclusive seasonal sales.",
+    "Vailmora — premium dynamic fashion for Men, Women and Boys. Discover curated collections, latest trends, and exclusive seasonal sales.",
   url: process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000",
   ogImage: "/og.png",
   email: "support@valmora.com",
@@ -15,8 +15,8 @@ export const SITE = {
   },
 };
 
-export const CURRENCY = process.env.NEXT_PUBLIC_CURRENCY ?? "USD";
-export const CURRENCY_SYMBOL = process.env.NEXT_PUBLIC_CURRENCY_SYMBOL ?? "$";
+export const CURRENCY = process.env.NEXT_PUBLIC_CURRENCY ?? "PKR";
+export const CURRENCY_SYMBOL = process.env.NEXT_PUBLIC_CURRENCY_SYMBOL ?? "Rs";
 
 export const SHIPPING = {
   freeOver: 100,
