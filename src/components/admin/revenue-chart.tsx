@@ -33,7 +33,7 @@ export function RevenueChart({
             </defs>
             <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
             <XAxis dataKey="day" fontSize={12} />
-            <YAxis fontSize={12} tickFormatter={(v) => `$${v}`} />
+            <YAxis fontSize={12} tickFormatter={(v) => formatPrice(v, { notation: "compact" })} />
             <Tooltip
               formatter={(value: number) => formatPrice(value)}
               labelClassName="font-semibold"

@@ -19,9 +19,9 @@ export const CURRENCY = process.env.NEXT_PUBLIC_CURRENCY ?? "PKR";
 export const CURRENCY_SYMBOL = process.env.NEXT_PUBLIC_CURRENCY_SYMBOL ?? "Rs";
 
 export const SHIPPING = {
-  freeOver: 100,
-  flat: 9.99,
-  expressFlat: 19.99,
+  freeOver: 15000,
+  flat: 350,
+  expressFlat: 750,
 };
 
 export const TAX_RATE = 0.08;

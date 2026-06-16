@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/store/cart-store";
 import { useWishlist } from "@/store/wishlist-store";
-import { COLORS } from "@/lib/constants";
+import { COLORS, SHIPPING } from "@/lib/constants";
 import { calcDiscountPct, cn, formatPrice } from "@/lib/utils";
 
 export function ProductActions({
@@ -213,7 +213,7 @@ export function ProductActions({
         <div className="flex items-start gap-3">
           <Truck className="mt-0.5 h-4 w-4 shrink-0" />
           <div>
-            <p className="font-medium">Free shipping over $100</p>
+            <p className="font-medium">Free shipping over {formatPrice(SHIPPING.freeOver)}</p>
             <p className="text-xs text-muted-foreground">
               Estimated delivery: 3–7 business days
             </p>

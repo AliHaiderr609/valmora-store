@@ -73,8 +73,8 @@ const SAMPLE_PRODUCTS: Array<{
     description:
       "A timeless silhouette in 100% mulberry silk. Lined for comfort, adjustable straps, French seams.",
     shortDescription: "Mulberry silk slip with adjustable straps.",
-    price: 189,
-    salePrice: 149,
+    price: 52990,
+    salePrice: 41990,
     stock: 32,
     gender: "WOMEN",
     categoryName: "Dresses",
@@ -93,7 +93,7 @@ const SAMPLE_PRODUCTS: Array<{
     description:
       "Knit from grade-A inner Mongolian cashmere with a relaxed crew neck and ribbed cuffs.",
     shortDescription: "Pure cashmere crew-neck sweater.",
-    price: 229,
+    price: 64990,
     stock: 18,
     gender: "WOMEN",
     categoryName: "Knitwear",
@@ -111,7 +111,7 @@ const SAMPLE_PRODUCTS: Array<{
     description:
       "Tailored wide-leg trousers in a wool blend. High waist, hidden zip closure, drapes beautifully.",
     shortDescription: "Tailored wool wide-leg trousers.",
-    price: 159,
+    price: 44990,
     stock: 24,
     gender: "WOMEN",
     categoryName: "Bottoms",
@@ -129,8 +129,8 @@ const SAMPLE_PRODUCTS: Array<{
     description:
       "Double-breasted wool blazer with peak lapels and tortoiseshell buttons. Fully lined.",
     shortDescription: "Double-breasted wool blazer.",
-    price: 349,
-    salePrice: 279,
+    price: 97990,
+    salePrice: 78990,
     stock: 15,
     gender: "WOMEN",
     categoryName: "Outerwear",
@@ -150,7 +150,7 @@ const SAMPLE_PRODUCTS: Array<{
     description:
       "A staple oxford shirt in soft-washed cotton. Mother-of-pearl buttons. Slim through the chest with extra room in the shoulders.",
     shortDescription: "Soft-washed cotton Oxford shirt.",
-    price: 89,
+    price: 24990,
     stock: 60,
     gender: "MEN",
     categoryName: "Shirts",
@@ -168,8 +168,8 @@ const SAMPLE_PRODUCTS: Array<{
     description:
       "Two-piece suit cut from a super 110s Italian wool. Half-canvassed construction with surgeon cuffs.",
     shortDescription: "Italian super 110s wool suit.",
-    price: 689,
-    salePrice: 549,
+    price: 192990,
+    salePrice: 153990,
     stock: 10,
     gender: "MEN",
     categoryName: "Suits",
@@ -188,7 +188,7 @@ const SAMPLE_PRODUCTS: Array<{
     description:
       "Heavy-weight 240gsm cotton crew tee with a clean rolled hem. Pre-shrunk and built to outlast.",
     shortDescription: "240gsm heavyweight cotton tee.",
-    price: 39,
+    price: 10990,
     stock: 200,
     gender: "MEN",
     categoryName: "T-Shirts",
@@ -206,7 +206,7 @@ const SAMPLE_PRODUCTS: Array<{
     description:
       "Mid-rise chinos in a brushed twill. Slight stretch, slim through the leg.",
     shortDescription: "Brushed twill mid-rise chinos.",
-    price: 99,
+    price: 27990,
     stock: 80,
     gender: "MEN",
     categoryName: "Bottoms",
@@ -224,7 +224,7 @@ const SAMPLE_PRODUCTS: Array<{
     description:
       "Soft fleece hoodie with kangaroo pocket. Reinforced cuffs and a draw-cord hood.",
     shortDescription: "Soft fleece kids' hoodie.",
-    price: 49,
+    price: 13990,
     stock: 100,
     gender: "BOYS",
     categoryName: "Hoodies",
@@ -242,8 +242,8 @@ const SAMPLE_PRODUCTS: Array<{
     description:
       "Durable cargo pants with elastic ankles. Six pockets to carry whatever the day brings.",
     shortDescription: "Durable kids' cargo pants.",
-    price: 59,
-    salePrice: 39,
+    price: 16990,
+    salePrice: 10990,
     stock: 70,
     gender: "BOYS",
     categoryName: "Bottoms",
@@ -262,7 +262,7 @@ const SAMPLE_PRODUCTS: Array<{
     description:
       "Classic striped polo in soft pique cotton. Designed to look smart and play hard.",
     shortDescription: "Soft pique cotton polo for kids.",
-    price: 34,
+    price: 9990,
     stock: 150,
     gender: "BOYS",
     categoryName: "T-Shirts",
@@ -347,7 +347,10 @@ async function main() {
 
     await prisma.product.upsert({
       where: { slug },
-      update: {},
+      update: {
+        price: p.price,
+        salePrice: p.salePrice ?? null,
+      },
       create: {
         title: p.title,
         slug,
@@ -422,13 +425,13 @@ async function main() {
   // Coupons
   await prisma.coupon.upsert({
     where: { code: "WELCOME10" },
-    update: {},
+    update: { minOrder: 15000 },
     create: {
       code: "WELCOME10",
       description: "10% off your first order",
       type: "PERCENTAGE",
       value: 10,
-      minOrder: 50,
+      minOrder: 15000,
       isActive: true,
     },
   });
@@ -445,13 +448,13 @@ async function main() {
   });
   await prisma.coupon.upsert({
     where: { code: "EID25" },
-    update: {},
+    update: { maxDiscount: 5000 },
     create: {
       code: "EID25",
       description: "Eid sale — 25% off",
       type: "PERCENTAGE",
       value: 25,
-      maxDiscount: 100,
+      maxDiscount: 5000,
       isActive: true,
     },
   });

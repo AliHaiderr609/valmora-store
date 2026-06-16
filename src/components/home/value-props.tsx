@@ -1,7 +1,10 @@
 import { Headphones, ShieldCheck, Truck, Undo2 } from "lucide-react";
 
+import { SHIPPING } from "@/lib/constants";
+import { formatPrice } from "@/lib/utils";
+
 const PROPS = [
-  { icon: Truck, title: "Free shipping", desc: "On orders over $100" },
+  { icon: Truck, title: "Free shipping", desc: `On orders over ${formatPrice(SHIPPING.freeOver)}` },
   { icon: Undo2, title: "30-day returns", desc: "Easy & hassle-free" },
   { icon: ShieldCheck, title: "Secure checkout", desc: "Encrypted payments" },
   { icon: Headphones, title: "24/7 support", desc: "We're here to help" },

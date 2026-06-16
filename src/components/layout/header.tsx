@@ -35,7 +35,8 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { CartDrawer } from "@/components/cart/cart-drawer";
 import { useCart } from "@/store/cart-store";
 import { useWishlist } from "@/store/wishlist-store";
-import { GENDERS, SITE } from "@/lib/constants";
+import { GENDERS, SHIPPING, SITE } from "@/lib/constants";
+import { formatPrice } from "@/lib/utils";
 
 export function Header() {
   const router = useRouter();
@@ -58,8 +59,10 @@ export function Header() {
     <>
       <div className="border-b bg-primary text-primary-foreground">
         <div className="container-x flex h-9 items-center justify-between text-xs">
-          <p className="hidden sm:block">Free shipping on orders over $100 · Easy 30-day returns</p>
-          <p className="sm:hidden">Free shipping over $100</p>
+          <p className="hidden sm:block">
+            Free shipping on orders over {formatPrice(SHIPPING.freeOver)} · Easy 30-day returns
+          </p>
+          <p className="sm:hidden">Free shipping over {formatPrice(SHIPPING.freeOver)}</p>
           <div className="flex items-center gap-4">
             <Link href="/blog" className="hover:underline">
               Journal
