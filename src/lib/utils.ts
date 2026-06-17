@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const CURRENCY = process.env.NEXT_PUBLIC_CURRENCY ?? "USD";
+const CURRENCY = process.env.NEXT_PUBLIC_CURRENCY ?? "PKR";
 
 export function formatPrice(
   amount: number | string | { toString(): string } | null | undefined,
@@ -20,7 +20,7 @@ export function formatPrice(
       ? Number(amount.toString())
       : 0;
 
-  return new Intl.NumberFormat("en-US", {
+  return new Intl.NumberFormat("en-PK", {
     style: "currency",
     currency: options.currency ?? CURRENCY,
     notation: options.notation ?? "standard",

@@ -8,7 +8,7 @@ export default function TermsPage() {
         <p className="text-sm text-muted-foreground">Last updated: {new Date().toLocaleDateString()}</p>
 
         <h2 className="font-serif text-2xl">Use of our service</h2>
-        <p>By accessing Valmora, you agree to these terms. You must be at least 18 years old to make a purchase.</p>
+        <p>By accessing Vailmora, you agree to these terms. You must be at least 18 years old to make a purchase.</p>
 
         <h2 className="font-serif text-2xl">Orders and payment</h2>
         <p>All prices are shown in your selected currency. Orders are subject to availability and verification.</p>

@@ -78,7 +78,7 @@ export default async function ProductDetailPage({
     brand: product.brand?.name ? { "@type": "Brand", name: product.brand.name } : undefined,
     offers: {
       "@type": "Offer",
-      priceCurrency: process.env.NEXT_PUBLIC_CURRENCY ?? "USD",
+      priceCurrency: process.env.NEXT_PUBLIC_CURRENCY ?? "PKR",
       price: toNumber(product.salePrice ?? product.price),
       availability: product.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
     },

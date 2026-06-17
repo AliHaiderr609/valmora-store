@@ -90,7 +90,7 @@ export async function POST(req: Request) {
           shipping: breakdown.shipping,
           tax: breakdown.tax,
           total: breakdown.total,
-          currency: process.env.NEXT_PUBLIC_CURRENCY ?? "USD",
+          currency: process.env.NEXT_PUBLIC_CURRENCY ?? "PKR",
           couponCode: breakdown.appliedCoupon?.code,
           shippingAddressId: shipping.id,
           billingAddressId: billing.id,
@@ -143,7 +143,7 @@ export async function POST(req: Request) {
         line_items: breakdown.lines.map((l) => ({
           quantity: l.quantity,
           price_data: {
-            currency: (process.env.NEXT_PUBLIC_CURRENCY ?? "usd").toLowerCase(),
+            currency: (process.env.NEXT_PUBLIC_CURRENCY ?? "pkr").toLowerCase(),
             unit_amount: Math.round(l.unitPrice * 100),
             product_data: { name: l.title, images: l.image ? [l.image] : [] },
           },
@@ -155,7 +155,7 @@ export async function POST(req: Request) {
               type: "fixed_amount",
               fixed_amount: {
                 amount: Math.round(breakdown.shipping * 100),
-                currency: (process.env.NEXT_PUBLIC_CURRENCY ?? "usd").toLowerCase(),
+                currency: (process.env.NEXT_PUBLIC_CURRENCY ?? "pkr").toLowerCase(),
               },
               display_name:
                 breakdown.shipping === 0 ? "Free shipping" : "Standard shipping",
@@ -169,7 +169,7 @@ export async function POST(req: Request) {
                   coupon: await (async () => {
                     const c = await stripe.coupons.create({
                       amount_off: Math.round(breakdown.discount * 100),
-                      currency: (process.env.NEXT_PUBLIC_CURRENCY ?? "usd").toLowerCase(),
+                      currency: (process.env.NEXT_PUBLIC_CURRENCY ?? "pkr").toLowerCase(),
                       duration: "once",
                     });
                     return c.id;
@@ -194,11 +194,11 @@ export async function POST(req: Request) {
       html: orderConfirmationEmail({
         orderNumber: order.orderNumber,
         customerName: session?.user.name ?? data.shippingAddress.fullName,
-        total: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL ?? "$"}${breakdown.total.toFixed(2)}`,
+        total: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL ?? "Rs"}${breakdown.total.toFixed(2)}`,
         items: breakdown.lines.map((l) => ({
           title: l.title,
           quantity: l.quantity,
-          price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL ?? "$"}${l.lineTotal.toFixed(2)}`,
+          price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL ?? "Rs"}${l.lineTotal.toFixed(2)}`,
         })),
       }),
     });

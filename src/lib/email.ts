@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 const host = process.env.SMTP_HOST;
 const user = process.env.SMTP_USER;
 const pass = process.env.SMTP_PASSWORD;
-const from = process.env.SMTP_FROM ?? "Valmora <no-reply@valmora.com>";
+const from = process.env.SMTP_FROM ?? "Vailmora <no-reply@Vailmora.com>";
 
 const transporter =
   host && user && pass
@@ -43,7 +43,7 @@ export function orderConfirmationEmail(order: {
 
   return `
   <div style="font-family:Inter,Arial,sans-serif;max-width:600px;margin:0 auto;padding:24px;color:#111">
-    <h1 style="font-family:Georgia,serif;color:#92591f">Valmora</h1>
+    <h1 style="font-family:Georgia,serif;color:#92591f">Vailmora</h1>
     <h2>Thank you for your order, ${order.customerName}!</h2>
     <p>Your order <strong>${order.orderNumber}</strong> has been placed successfully.</p>
     <table style="width:100%;border-collapse:collapse;margin-top:16px">

@@ -12,7 +12,7 @@ export async function generateMetadata({
   const { q } = await searchParams;
   return {
     title: q ? `Search results for "${q}"` : "Search",
-    description: q ? `Find ${q} at Valmora.` : "Search the Valmora catalog.",
+    description: q ? `Find ${q} at Vailmora.` : "Search the Vailmora catalog.",
   };
 }
 

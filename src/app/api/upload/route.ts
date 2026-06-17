@@ -17,7 +17,7 @@ export async function POST(req: Request) {
     if (file.size > 10 * 1024 * 1024) return err("File too large (max 10MB)", 413);
 
     const buffer = Buffer.from(await file.arrayBuffer());
-    const result = await uploadToCloudinary(buffer, "valmora/products");
+    const result = await uploadToCloudinary(buffer, "Vailmora/products");
     return ok(result);
   } catch (e) {
     return handleError(e);

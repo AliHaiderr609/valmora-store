@@ -17,7 +17,7 @@ export function InstagramGallery() {
     <section className="container-x py-16">
       <SectionHeading
         eyebrow="As seen on"
-        title="@valmora"
+        title="@Vailmora"
         description="Tag us for a chance to be featured."
         align="center"
       />

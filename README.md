@@ -1,8 +1,8 @@
-# Valmora — Premium Fashion E-Commerce Platform
+# Vailmora — Premium Fashion E-Commerce Platform
 
 A production-quality, full-stack fashion e-commerce platform for **Men, Women and Boys**, built with **Next.js 15 (App Router)**, **TypeScript**, **Tailwind CSS**, **Prisma + PostgreSQL**, **NextAuth.js**, and **Stripe**.
 
-> Store name: **Valmora**
+> Store name: **Vailmora**
 > Customer storefront, customer accounts, full admin dashboard, secure payments, CMS-managed content, SEO, and more — all in one codebase.
 
 ---
@@ -130,7 +130,7 @@ npm run db:seed
 
 The seed script creates:
 
-- An admin user — credentials come from `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD` (default `admin@valmora.com` / `ChangeMe123!`)
+- An admin user — credentials come from `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD` (default `admin@Vailmora.com` / `ChangeMe123!`)
 - 3 brands, 11 categories
 - 11 demo products with multiple images, colors, sizes — across Men / Women / Boys
 - 3 hero banners
@@ -146,7 +146,7 @@ npm run dev
 Visit:
 
 - Storefront: <http://localhost:3000>
-- Admin: <http://localhost:3000/admin> (sign in as `admin@valmora.com`)
+- Admin: <http://localhost:3000/admin> (sign in as `admin@Vailmora.com`)
 
 ### 5. Configure optional integrations
 
@@ -304,4 +304,4 @@ These are wired into the data model and codebase so they can be implemented incr
 
 ## License
 
-Proprietary — © Valmora. All rights reserved.
+Proprietary — © Vailmora. All rights reserved.

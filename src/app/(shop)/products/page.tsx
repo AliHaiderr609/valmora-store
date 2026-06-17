@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Shop all products",
-  description: "Browse the full Valmora collection — men, women, and boys clothing.",
+  description: "Browse the full Vailmora collection — men, women, and boys clothing.",
 };
 
 export default async function ProductsPage({
