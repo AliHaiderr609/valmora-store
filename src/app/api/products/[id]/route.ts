@@ -2,6 +2,11 @@ import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { productSchema } from "@/lib/validators";
 import { err, handleError, ok } from "@/lib/api";
+import {
+  isNewOrImprovedSale,
+  notifySubscribersProductSale,
+  queueNewsletterEmail,
+} from "@/lib/newsletter-email";
 import { toNumber } from "@/lib/utils";
 
 async function requireStaff() {
@@ -37,6 +42,12 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
     const body = await req.json();
     const data = productSchema.partial().parse(body);
 
+    const before = await prisma.product.findUnique({
+      where: { id },
+      select: { salePrice: true, isFlashSale: true },
+    });
+    if (!before) return err("Not found", 404);
+
     const updated = await prisma.product.update({
       where: { id },
       data: {
@@ -62,6 +73,18 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
       },
       include: { images: true, brand: true, category: true },
     });
+
+    if (
+      isNewOrImprovedSale(before, {
+        salePrice: updated.salePrice,
+        isFlashSale: updated.isFlashSale,
+      })
+    ) {
+      queueNewsletterEmail(
+        () => notifySubscribersProductSale(updated),
+        `product sale broadcast (${updated.slug})`
+      );
+    }
 
     return ok(updated);
   } catch (e) {

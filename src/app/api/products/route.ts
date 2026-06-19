@@ -3,6 +3,11 @@ import { prisma } from "@/lib/prisma";
 import { listProducts, parseProductQuery } from "@/lib/services/products";
 import { productSchema } from "@/lib/validators";
 import { err, handleError, ok } from "@/lib/api";
+import {
+  notifySubscribersProductSale,
+  productHasSale,
+  queueNewsletterEmail,
+} from "@/lib/newsletter-email";
 import { generateSku, slugify, toNumber } from "@/lib/utils";
 
 export async function GET(req: Request) {
@@ -67,6 +72,13 @@ export async function POST(req: Request) {
       },
       include: { images: true, brand: true, category: true },
     });
+
+    if (productHasSale(product)) {
+      queueNewsletterEmail(
+        () => notifySubscribersProductSale(product),
+        `product sale broadcast (${product.slug})`
+      );
+    }
 
     return ok({
       ...product,

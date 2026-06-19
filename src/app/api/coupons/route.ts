@@ -2,6 +2,7 @@ import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { couponSchema } from "@/lib/validators";
 import { err, handleError, ok } from "@/lib/api";
+import { notifySubscribersNewCoupon, queueNewsletterEmail } from "@/lib/newsletter-email";
 
 export async function GET() {
   try {
@@ -31,6 +32,14 @@ export async function POST(req: Request) {
         expiresAt: data.expiresAt ? new Date(data.expiresAt) : null,
       },
     });
+
+    if (coupon.isActive) {
+      queueNewsletterEmail(
+        () => notifySubscribersNewCoupon(coupon),
+        `coupon broadcast (${coupon.code})`
+      );
+    }
+
     return ok(coupon);
   } catch (e) {
     return handleError(e);
