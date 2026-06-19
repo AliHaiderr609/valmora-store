@@ -1,19 +1,10 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
-const host = process.env.SMTP_HOST;
-const user = process.env.SMTP_USER;
-const pass = process.env.SMTP_PASSWORD;
-const from = process.env.SMTP_FROM ?? "Vailmora <no-reply@Vailmora.com>";
+const apiKey = process.env.RESEND_API_KEY;
+const from =
+  process.env.EMAIL_FROM ?? "Valmora <noreply@vailmora.store>";
 
-const transporter =
-  host && user && pass
-    ? nodemailer.createTransport({
-        host,
-        port: Number(process.env.SMTP_PORT ?? 587),
-        secure: false,
-        auth: { user, pass },
-      })
-    : null;
+const resend = apiKey ? new Resend(apiKey) : null;
 
 export async function sendEmail(opts: {
   to: string;
@@ -21,11 +12,27 @@ export async function sendEmail(opts: {
   html: string;
   text?: string;
 }) {
-  if (!transporter) {
-    console.warn(`[email] SMTP not configured — skipping email to ${opts.to}: ${opts.subject}`);
+  if (!resend) {
+    console.warn(
+      `[email] RESEND_API_KEY not configured — skipping email to ${opts.to}: ${opts.subject}`
+    );
     return { skipped: true };
   }
-  return transporter.sendMail({ from, ...opts });
+
+  const { data, error } = await resend.emails.send({
+    from,
+    to: opts.to,
+    subject: opts.subject,
+    html: opts.html,
+    text: opts.text,
+  });
+
+  if (error) {
+    console.error(`[email] Failed to send to ${opts.to}:`, error);
+    throw error;
+  }
+
+  return data;
 }
 
 export function orderConfirmationEmail(order: {
