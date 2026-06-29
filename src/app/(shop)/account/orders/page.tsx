@@ -39,7 +39,11 @@ export default async function OrdersPage() {
             </div>
             <div className="flex items-center gap-3">
               <Badge variant={statusVariant(o.status)}>{o.status}</Badge>
-              <Badge variant="outline">{o.paymentStatus}</Badge>
+              {o.paymentStatus !== "PENDING" && (
+                <Badge variant={o.paymentStatus === "PAID" ? "success" : "outline"}>
+                  {o.paymentStatus}
+                </Badge>
+              )}
             </div>
           </div>
 
