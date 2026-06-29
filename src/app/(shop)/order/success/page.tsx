@@ -19,10 +19,14 @@ function OrderSuccessContent() {
   return (
     <div className="container-x py-20 text-center">
       <CheckCircle2 className="mx-auto h-14 w-14 text-emerald-500" />
-      <h1 className="mt-4 font-serif text-4xl">Thank you for your order!</h1>
+      <h1 className="mt-4 font-serif text-4xl">Order Placed Successfully!</h1>
+      <p className="mt-3 text-lg text-muted-foreground">
+        Your order will be delivered to your address within{" "}
+        <strong className="text-foreground">3 to 5 working days</strong>.
+      </p>
       {orderNumber && (
-        <p className="mt-3 text-muted-foreground">
-          Your order <strong>{orderNumber}</strong> is confirmed. A receipt has been
+        <p className="mt-2 text-sm text-muted-foreground">
+          Order <strong>{orderNumber}</strong> is confirmed. A receipt has been
           sent to your email.
         </p>
       )}
