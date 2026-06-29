@@ -34,6 +34,7 @@ export default function CheckoutPage() {
   const [coupon, setCoupon] = React.useState("");
   const [method, setMethod] = React.useState<Method>("STRIPE");
   const [submitting, setSubmitting] = React.useState(false);
+  const orderPlaced = React.useRef(false);
 
   const [form, setForm] = React.useState({
     email: session?.user?.email ?? "",
@@ -74,10 +75,10 @@ export default function CheckoutPage() {
   }, [items, coupon]);
 
   React.useEffect(() => {
-    if (!items.length) router.replace("/cart");
+    if (!items.length && !orderPlaced.current) router.replace("/cart");
   }, [items, router]);
 
-  if (!items.length) return null;
+  if (!items.length && !orderPlaced.current) return null;
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -115,7 +116,8 @@ export default function CheckoutPage() {
       if (data.data.checkoutUrl) {
         window.location.href = data.data.checkoutUrl;
       } else {
-        clear();
+        orderPlaced.current = true;
+        toast.success("Order placed successfully!");
         router.push(`/order/success?order=${data.data.orderNumber}`);
       }
     } catch (e) {

@@ -130,7 +130,7 @@ npm run db:seed
 
 The seed script creates:
 
-- An admin user — credentials come from `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD` (default `admin@Vailmora.com` / `ChangeMe123!`)
+- An admin user — credentials come from `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD` 
 - 3 brands, 11 categories
 - 11 demo products with multiple images, colors, sizes — across Men / Women / Boys
 - 3 hero banners
@@ -146,7 +146,7 @@ npm run dev
 Visit:
 
 - Storefront: <http://localhost:3000>
-- Admin: <http://localhost:3000/admin> (sign in as `admin@Vailmora.com`)
+- Admin: <http://localhost:3000/admin> 
 
 ### 5. Configure optional integrations
 

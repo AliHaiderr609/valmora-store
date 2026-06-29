@@ -24,7 +24,8 @@ export function formatPrice(
     style: "currency",
     currency: options.currency ?? CURRENCY,
     notation: options.notation ?? "standard",
-    maximumFractionDigits: 2,
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
   }).format(num);
 }
 
