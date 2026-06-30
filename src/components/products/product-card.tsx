@@ -17,12 +17,16 @@ export function ProductCard({ product }: { product: ProductListItem }) {
   const add = useCart((s) => s.add);
   const toggleWish = useWishlist((s) => s.toggle);
   const inWish = useWishlist((s) => s.has(product.id));
+  const [mainImgError, setMainImgError] = React.useState(false);
 
   const price = product.salePrice ?? product.price;
   const onSale = !!product.salePrice && product.salePrice < product.price;
   const discount = onSale ? calcDiscountPct(product.price, product.salePrice) : 0;
-  const mainImage = product.images[0]?.url;
-  const hoverImage = product.images[1]?.url;
+  const rawMain = product.images[0]?.url;
+  const rawHover = product.images[1]?.url;
+  // If the first image fails, promote the second as the main and drop the hover
+  const mainImage = mainImgError ? rawHover : rawMain;
+  const hoverImage = mainImgError ? undefined : rawHover;
 
   const onQuickAdd = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -66,6 +70,7 @@ export function ProductCard({ product }: { product: ProductListItem }) {
             alt={product.title}
             fill
             sizes="(max-width: 768px) 50vw, 25vw"
+            onError={() => setMainImgError(true)}
             className={cn(
               "object-cover transition-all duration-500 group-hover:scale-105",
               hoverImage && "group-hover:opacity-0"
