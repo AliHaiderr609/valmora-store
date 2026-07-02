@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   BarChart3,
+  BookOpen,
   Image as ImageIcon,
   LayoutDashboard,
   Package,
@@ -24,6 +25,7 @@ const NAV = [
   { href: "/admin/customers", label: "Customers", icon: Users },
   { href: "/admin/coupons", label: "Coupons", icon: PercentCircle },
   { href: "/admin/cms/banners", label: "CMS · Banners", icon: ImageIcon },
+  { href: "/admin/blog", label: "Journal", icon: BookOpen },
   { href: "/admin/analytics", label: "Analytics", icon: BarChart3 },
   { href: "/admin/settings", label: "Settings", icon: Settings },
 ];
