@@ -61,10 +61,10 @@ function mapListItem(p: {
   author: { name: string | null; image: string | null };
   category: { name: string; slug: string } | null;
 }): BlogPostListItem {
+  const { content, ...rest } = p;
   return {
-    ...p,
-    readingTime: calcReadingTime(p.content),
-    content: undefined as never,
+    ...rest,
+    readingTime: calcReadingTime(content),
   };
 }
 
