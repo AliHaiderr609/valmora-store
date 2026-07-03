@@ -35,6 +35,24 @@ export async function sendEmail(opts: {
   return data;
 }
 
+export function passwordResetEmail(opts: { resetUrl: string; name?: string }): string {
+  const greeting = opts.name ? `Hi ${opts.name},` : "Hi,";
+  return `
+  <div style="font-family:Inter,Arial,sans-serif;max-width:600px;margin:0 auto;padding:24px;color:#111">
+    <h1 style="font-family:Georgia,serif;color:#92591f">Vailmora</h1>
+    <h2>Reset your password</h2>
+    <p>${greeting}</p>
+    <p>We received a request to reset the password for your Vailmora account. Click the button below to set a new password. This link is valid for <strong>1 hour</strong>.</p>
+    <div style="text-align:center;margin:32px 0">
+      <a href="${opts.resetUrl}" style="background:#92591f;color:#fff;padding:14px 28px;border-radius:6px;text-decoration:none;font-size:15px;font-weight:600">
+        Reset password
+      </a>
+    </div>
+    <p style="font-size:13px;color:#555">If you didn't request this, you can safely ignore this email. Your password will not change.</p>
+    <p style="font-size:12px;color:#999;margin-top:24px">Or copy this link into your browser:<br/><a href="${opts.resetUrl}" style="color:#92591f">${opts.resetUrl}</a></p>
+  </div>`;
+}
+
 export function orderConfirmationEmail(order: {
   orderNumber: string;
   customerName: string;
