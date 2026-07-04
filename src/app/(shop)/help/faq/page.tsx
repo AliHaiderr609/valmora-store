@@ -7,6 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { HelpNav } from "@/components/help/help-nav";
 import { SITE, SHIPPING, CURRENCY_SYMBOL } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -205,6 +206,8 @@ export default function FaqPage() {
           and we'll get back to you within a few hours.
         </p>
       </header>
+
+      <HelpNav current="/help/faq" />
 
       {/* Category quick-links */}
       <nav className="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-2">
