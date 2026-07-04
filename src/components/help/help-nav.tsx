@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const LINKS = [
-  { href: "/help", label: "Overview", exact: true },
+  { href: "/help", label: "Overview" },
   { href: "/help/faq", label: "FAQ" },
   { href: "/help/shipping", label: "Shipping" },
   { href: "/help/returns", label: "Returns" },
@@ -13,7 +13,7 @@ export function HelpNav({ current }: { current: string }) {
   return (
     <nav className="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-2">
       {LINKS.map((link) => {
-        const active = link.exact ? current === link.href : current === link.href;
+        const active = current === link.href;
         return (
           <Link
             key={link.href}
