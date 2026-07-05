@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { SHIPPING, TAX_RATE } from "@/lib/constants";
+import { getSettings } from "@/lib/settings";
 import { toNumber } from "@/lib/utils";
 
 export type CartLine = {
@@ -67,6 +67,8 @@ export async function priceCart(
 
   const subtotal = lines.reduce((s, l) => s + l.lineTotal, 0);
 
+  const { shippingFlat, shippingFreeOver, shippingExpress, taxRate } = await getSettings();
+
   // Coupon
   let discount = 0;
   let appliedCoupon: PriceBreakdown["appliedCoupon"] = null;
@@ -97,12 +99,12 @@ export async function priceCart(
   }
 
   const baseShipping =
-    opts.shippingMethod === "express" ? SHIPPING.expressFlat : SHIPPING.flat;
+    opts.shippingMethod === "express" ? shippingExpress : shippingFlat;
   const shipping =
-    freeShipping || subtotal - discount >= SHIPPING.freeOver ? 0 : baseShipping;
+    freeShipping || subtotal - discount >= shippingFreeOver ? 0 : baseShipping;
 
   const taxable = Math.max(0, subtotal - discount);
-  const tax = Math.round(taxable * TAX_RATE * 100) / 100;
+  const tax = Math.round(taxable * taxRate * 100) / 100;
 
   const total = Math.max(0, subtotal - discount + shipping + tax);
 
