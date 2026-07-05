@@ -2,14 +2,22 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { HelpNav } from "@/components/help/help-nav";
-import { CURRENCY_SYMBOL, SHIPPING, SITE } from "@/lib/constants";
+import { getSettings } from "@/lib/settings";
 
 export const metadata: Metadata = {
   title: "Shipping & delivery",
   description: "Vailmora shipping rates, delivery times, and order tracking information.",
 };
 
-export default function ShippingPage() {
+export default async function ShippingPage() {
+  const {
+    storeEmail,
+    currencySymbol,
+    shippingFlat,
+    shippingFreeOver,
+    shippingExpress,
+  } = await getSettings();
+
   return (
     <div className="container-x py-12">
       <header className="mx-auto max-w-2xl text-center">
@@ -30,15 +38,15 @@ export default function ShippingPage() {
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
             <li>
               <strong className="text-foreground">Standard shipping:</strong>{" "}
-              {CURRENCY_SYMBOL} {SHIPPING.flat} — delivered in 3–7 business days.
+              {currencySymbol} {shippingFlat} — delivered in 3–7 business days.
             </li>
             <li>
               <strong className="text-foreground">Free shipping:</strong> on orders over{" "}
-              {CURRENCY_SYMBOL} {SHIPPING.freeOver.toLocaleString()}.
+              {currencySymbol} {shippingFreeOver.toLocaleString()}.
             </li>
             <li>
               <strong className="text-foreground">Express shipping:</strong>{" "}
-              {CURRENCY_SYMBOL} {SHIPPING.expressFlat} — delivered in 1–2 business days.
+              {currencySymbol} {shippingExpress} — delivered in 1–2 business days.
             </li>
           </ul>
         </section>
@@ -68,10 +76,10 @@ export default function ShippingPage() {
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
             If your tracking shows no movement for more than 5 business days, contact us at{" "}
             <a
-              href={`mailto:${SITE.email}`}
+              href={`mailto:${storeEmail}`}
               className="font-medium text-foreground underline underline-offset-2"
             >
-              {SITE.email}
+              {storeEmail}
             </a>
             . We will investigate with the courier and either resend your order or issue a full refund.
           </p>
