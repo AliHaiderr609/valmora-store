@@ -21,7 +21,6 @@ const SECTIONS: { title: string; links: { href: string; label: string }[] }[] = 
       { href: "/about", label: "About Vailmora" },
       { href: "/blog", label: "Journal" },
       { href: "/contact", label: "Contact" },
-      { href: "/careers", label: "Careers" },
     ],
   },
   {
