@@ -28,7 +28,7 @@ A production-quality, full-stack fashion e-commerce platform for **Men, Women an
 - Email notifications (Nodemailer / SMTP)
 - Newsletter signup, customer reviews, wishlists
 - Rate limiting on auth + newsletter endpoints
-- Seed script that loads brands, categories, 11 sample products, 3 hero banners, coupons, FAQ, and an admin user
+- Optional demo seed for local development
 
 ---
 
@@ -101,17 +101,13 @@ npm install --legacy-peer-deps
 
 ### 2. Configure environment
 
-Copy the template and fill in values:
+Copy the template and fill in values. Do not commit your `.env` file.
 
 ```bash
 cp .env.example .env
 ```
 
-At minimum you need `DATABASE_URL` and `AUTH_SECRET`. Generate a secret with:
-
-```bash
-openssl rand -base64 32
-```
+See `.env.example` for required and optional variables. Never share or commit real secrets.
 
 ### 3. Set up the database
 
@@ -124,18 +120,9 @@ npm run db:push
 # OR, for a versioned migration history:
 npm run db:migrate
 
-# Seed with demo data
+# Optional: load demo catalog data for local development
 npm run db:seed
 ```
-
-The seed script creates:
-
-- An admin user — credentials come from `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD` 
-- 3 brands, 11 categories
-- 11 demo products with multiple images, colors, sizes — across Men / Women / Boys
-- 3 hero banners
-- Coupons: `WELCOME10`, `FREESHIP`, `EID25`
-- FAQ entries
 
 ### 4. Run the dev server
 
@@ -146,20 +133,13 @@ npm run dev
 Visit:
 
 - Storefront: <http://localhost:3000>
-- Admin: <http://localhost:3000/admin> 
+- Admin: <http://localhost:3000/admin>
 
 ### 5. Configure optional integrations
 
-Edit `.env` to enable any of the following.
+Set provider credentials in `.env` (see `.env.example`) for Google OAuth, Stripe, Cloudinary, and email/SMTP as needed.
 
-| Feature        | Variables                                                                                       |
-| -------------- | ----------------------------------------------------------------------------------------------- |
-| Google OAuth   | `AUTH_GOOGLE_ID`, `AUTH_GOOGLE_SECRET`                                                          |
-| Stripe         | `STRIPE_SECRET_KEY`, `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`, `STRIPE_WEBHOOK_SECRET`              |
-| Cloudinary     | `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`                           |
-| Email (SMTP)   | `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`, `SMTP_FROM`                              |
-
-If any of these are missing, the app **fails gracefully**:
+If optional integrations are missing, the app **fails gracefully**:
 - Image uploads return a clear error,
 - Email sends are skipped with a console warning,
 - Stripe checkout returns an error if you choose the Stripe payment method without configuring it (COD continues to work).
@@ -238,25 +218,26 @@ All routes return `{ ok: true, data }` on success or `{ ok: false, error, detail
 
 1. Push the repo to GitHub.
 2. Create a new Vercel project from the repo.
-3. Add all environment variables from `.env.example`.
+3. Add environment variables from `.env.example` (use production secrets; never reuse local values).
 4. Set the **build command** to `npm run build` and the **install command** to `npm install --legacy-peer-deps`.
 5. Add a Stripe webhook in the Stripe dashboard pointing to:
    `https://YOUR_DOMAIN/api/payments/stripe/webhook`
 
 ### Database hosts
 
-Pick any of the following and put the connection string in `DATABASE_URL`:
+Use any managed PostgreSQL host and set the connection string via your environment config:
 - **Neon** – serverless Postgres, generous free tier
 - **Supabase** – Postgres + auth (we use our own auth)
 - **Railway** – great DX
 - **AWS RDS / GCP Cloud SQL** – for enterprise
 
-After deploying, run:
+After deploying, apply the schema:
 
 ```bash
 npm run db:push     # apply schema
-npm run db:seed     # (optional) seed demo data
 ```
+
+Only run the seed in non-production environments if you intentionally want demo data.
 
 ---
 
@@ -286,7 +267,7 @@ npm run db:seed     # (optional) seed demo data
 | `npm run db:push`  | Sync Prisma schema to DB             |
 | `npm run db:migrate` | Generate + apply a Prisma migration |
 | `npm run db:studio`| Open Prisma Studio                   |
-| `npm run db:seed`  | Run the seed script                  |
+| `npm run db:seed`  | Load demo data (local / non-prod only) |
 
 ---
 
