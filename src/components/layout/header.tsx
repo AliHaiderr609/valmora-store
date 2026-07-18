@@ -110,14 +110,14 @@ export function Header() {
             </SheetContent>
           </Sheet>
 
-          <Link href="/" className="flex items-center" aria-label={`${SITE.name} home`}>
+          <Link href="/" className="flex shrink-0 items-center" aria-label={`${SITE.name} home`}>
             <Image
               src="/brand-wordmark-v2.png"
               alt={`${SITE.name} logo`}
               width={298}
               height={120}
               priority
-              className="h-10 w-auto md:h-12"
+              className="h-8 w-auto md:h-12"
             />
           </Link>
 
