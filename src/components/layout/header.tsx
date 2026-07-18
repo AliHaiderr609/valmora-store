@@ -110,18 +110,15 @@ export function Header() {
             </SheetContent>
           </Sheet>
 
-          <Link href="/" className="flex items-center gap-2" aria-label={`${SITE.name} home`}>
+          <Link href="/" className="flex items-center" aria-label={`${SITE.name} home`}>
             <Image
-              src="/logo.png"
+              src="/brand-wordmark-v2.png"
               alt={`${SITE.name} logo`}
-              width={36}
-              height={36}
+              width={298}
+              height={120}
               priority
-              className="h-9 w-9 rounded-md"
+              className="h-10 w-auto md:h-12"
             />
-            <span className="font-serif text-2xl font-semibold tracking-wider md:text-3xl">
-              {SITE.name}
-            </span>
           </Link>
 
           <nav className="hidden flex-1 items-center gap-8 pl-8 md:flex">
