@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
@@ -109,7 +110,15 @@ export function Header() {
             </SheetContent>
           </Sheet>
 
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2" aria-label={`${SITE.name} home`}>
+            <Image
+              src="/logo.png"
+              alt={`${SITE.name} logo`}
+              width={36}
+              height={36}
+              priority
+              className="h-9 w-9 rounded-md"
+            />
             <span className="font-serif text-2xl font-semibold tracking-wider md:text-3xl">
               {SITE.name}
             </span>
