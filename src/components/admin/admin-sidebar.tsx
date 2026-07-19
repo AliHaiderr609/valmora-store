@@ -11,6 +11,7 @@ import {
   PercentCircle,
   Settings,
   ShoppingBag,
+  Star,
   Tag,
   Users,
 } from "lucide-react";
@@ -23,6 +24,7 @@ const NAV = [
   { href: "/admin/categories", label: "Categories", icon: Tag },
   { href: "/admin/orders", label: "Orders", icon: ShoppingBag },
   { href: "/admin/customers", label: "Customers", icon: Users },
+  { href: "/admin/reviews", label: "Reviews", icon: Star },
   { href: "/admin/coupons", label: "Coupons", icon: PercentCircle },
   { href: "/admin/cms/banners", label: "CMS · Banners", icon: ImageIcon },
   { href: "/admin/blog", label: "Journal", icon: BookOpen },
