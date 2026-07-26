@@ -43,6 +43,7 @@ export function SectionHeading({
       {href && (
         <Link
           href={href}
+          aria-label={`${hrefLabel} ${title}`}
           className="flex shrink-0 items-center gap-1 text-sm font-medium underline-offset-4 hover:underline"
         >
           {hrefLabel} <ArrowRight className="h-4 w-4" />
