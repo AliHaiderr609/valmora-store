@@ -47,7 +47,7 @@ export function CategoriesSection({ categories }: { categories?: Cat[] }) {
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-300">
                 Shop the collection
               </p>
-              <h3 className="mt-1 font-serif text-3xl">{c.name}</h3>
+              <h2 className="mt-1 font-serif text-3xl">{c.name}</h2>
             </div>
           </Link>
         ))}
