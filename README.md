@@ -94,6 +94,7 @@ prisma/
 
 ```bash
 npm install --legacy-peer-deps
+
 ```
 
 (`--legacy-peer-deps` keeps the install resilient if any optional package has slightly different React peer ranges.)
