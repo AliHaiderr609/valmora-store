@@ -282,7 +282,6 @@ These are wired into the data model and codebase so they can be implemented incr
 - Referral system + abandoned-cart recovery (extend `Notification` + cron)
 
 ---
-
 ## License
 
 Proprietary — © Vailmora. All rights reserved.
