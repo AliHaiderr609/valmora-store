@@ -88,7 +88,6 @@ prisma/
 ```
 
 ---
-
 ## Getting started
 
 ### 1. Install dependencies
