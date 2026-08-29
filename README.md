@@ -213,7 +213,6 @@ All routes return `{ ok: true, data }` on success or `{ ok: false, error, detail
 ---
 
 ## Deployment
-
 ### Vercel (recommended for the app)
 
 1. Push the repo to GitHub.
