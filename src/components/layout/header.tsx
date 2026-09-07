@@ -112,12 +112,20 @@ export function Header() {
 
           <Link href="/" className="flex shrink-0 items-center" aria-label={`${SITE.name} home`}>
             <Image
-              src="/brand-wordmark-v2.png"
+              src="/brand-wordmark-light.png"
               alt={`${SITE.name} logo`}
-              width={298}
-              height={120}
+              width={1024}
+              height={411}
               priority
-              className="h-6 w-auto md:h-9"
+              className="h-6 w-auto dark:hidden md:h-9"
+            />
+            <Image
+              src="/brand-wordmark-dark.png"
+              alt={`${SITE.name} logo`}
+              width={1024}
+              height={411}
+              priority
+              className="hidden h-6 w-auto dark:block md:h-9"
             />
           </Link>
 
