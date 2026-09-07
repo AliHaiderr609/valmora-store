@@ -114,18 +114,18 @@ export function Header() {
             <Image
               src="/brand-wordmark-light.png"
               alt={`${SITE.name} logo`}
-              width={1024}
-              height={411}
+              width={980}
+              height={269}
               priority
-              className="h-6 w-auto dark:hidden md:h-9"
+              className="block h-5 w-auto -translate-y-1 dark:hidden md:h-7 md:-translate-y-1.5"
             />
             <Image
               src="/brand-wordmark-dark.png"
               alt={`${SITE.name} logo`}
-              width={1024}
-              height={411}
+              width={980}
+              height={269}
               priority
-              className="hidden h-6 w-auto dark:block md:h-9"
+              className="hidden h-5 w-auto -translate-y-1 dark:block md:h-7 md:-translate-y-1.5"
             />
           </Link>
 
