@@ -7,6 +7,7 @@ import { getSettings } from "@/lib/settings";
 export const metadata: Metadata = {
   title: "Shipping & delivery",
   description: "Vailmora shipping rates, delivery times, and order tracking information.",
+  alternates: { canonical: "/help/shipping" },
 };
 
 export default async function ShippingPage() {

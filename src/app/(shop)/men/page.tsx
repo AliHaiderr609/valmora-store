@@ -4,6 +4,7 @@ import { GenderListingPage } from "@/components/products/gender-listing";
 export const metadata: Metadata = {
   title: "Men's Clothing",
   description: "Premium men's clothing — shirts, suits, and everyday essentials by Vailmora.",
+  alternates: { canonical: "/men" },
 };
 
 export default function MenPage({

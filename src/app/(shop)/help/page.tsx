@@ -8,6 +8,7 @@ import { SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Help centre",
   description: "Shipping, returns, sizing, FAQs, and support for your Vailmora orders.",
+  alternates: { canonical: "/help" },
 };
 
 const TOPICS = [

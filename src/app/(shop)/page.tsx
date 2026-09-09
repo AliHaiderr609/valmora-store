@@ -7,9 +7,14 @@ import { ProductRow } from "@/components/home/product-row";
 import { FlashSale } from "@/components/home/flash-sale";
 import { Testimonials } from "@/components/home/testimonials";
 import { InstagramGallery } from "@/components/home/instagram-gallery";
+import type { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
- 
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
 export default async function HomePage() {
   const [banners, featured, trending, newArrivals, flashSale] = await Promise.all([
     prisma.banner

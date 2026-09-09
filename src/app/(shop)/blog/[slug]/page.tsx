@@ -25,6 +25,7 @@ export async function generateMetadata({
   return {
     title: post.seoTitle ?? `${post.title} — ${SITE.name} Journal`,
     description: post.seoDesc ?? post.excerpt ?? post.content.slice(0, 160),
+    alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       title: post.title,
       description: post.excerpt ?? "",

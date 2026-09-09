@@ -4,6 +4,7 @@ import { GenderListingPage } from "@/components/products/gender-listing";
 export const metadata: Metadata = {
   title: "Women's Clothing",
   description: "Effortless luxury for women — dresses, knitwear, and timeless silhouettes.",
+  alternates: { canonical: "/women" },
 };
 
 export default function WomenPage({

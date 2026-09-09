@@ -7,6 +7,7 @@ import { SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Returns & exchanges",
   description: "Vailmora return and exchange policy — how to start a return within 14 days.",
+  alternates: { canonical: "/help/returns" },
 };
 
 export default function ReturnsPage() {

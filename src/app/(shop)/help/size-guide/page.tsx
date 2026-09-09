@@ -14,6 +14,7 @@ import {
 export const metadata: Metadata = {
   title: "Size guide",
   description: "Vailmora size charts for Men, Women, and Boys collections.",
+  alternates: { canonical: "/help/size-guide" },
 };
 
 const MEN_SIZES = [
