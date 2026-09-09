@@ -5,6 +5,7 @@ import { SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "About Vailmora",
   description: "The story behind Vailmora — premium fashion designed to last.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

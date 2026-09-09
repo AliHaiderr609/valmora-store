@@ -64,6 +64,7 @@ export const metadata: Metadata = {
   title: `Journal — ${SITE.name}`,
   description:
     "Stories, style guides, and inspiration from the Vailmora atelier. Explore our Journal.",
+  alternates: { canonical: "/blog" },
 };
 
 export default async function BlogPage({

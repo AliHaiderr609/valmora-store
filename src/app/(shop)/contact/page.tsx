@@ -1,10 +1,12 @@
+import type { Metadata } from "next";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 import { getSettings } from "@/lib/settings";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Contact us",
   description: "Reach the Vailmora team — we're here to help.",
+  alternates: { canonical: "/contact" },
 };
 
 export default async function ContactPage() {

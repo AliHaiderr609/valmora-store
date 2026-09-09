@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "FAQ — Frequently Asked Questions",
   description:
     "Find answers to the most common questions about orders, shipping, returns, sizing, and your Vailmora account.",
+  alternates: { canonical: "/help/faq" },
 };
 
 interface FaqItem {

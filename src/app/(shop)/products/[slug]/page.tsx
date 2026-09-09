@@ -22,6 +22,7 @@ export async function generateMetadata({
   return {
     title: product.seoTitle ?? product.title,
     description: product.seoDesc ?? product.shortDescription ?? product.description.slice(0, 160),
+    alternates: { canonical: `/products/${slug}` },
     openGraph: {
       title: product.title,
       description: product.shortDescription ?? "",

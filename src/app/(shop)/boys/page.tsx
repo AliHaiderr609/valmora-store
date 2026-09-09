@@ -4,6 +4,7 @@ import { GenderListingPage } from "@/components/products/gender-listing";
 export const metadata: Metadata = {
   title: "Boys' Clothing",
   description: "Playful, durable, premium clothing for boys — designed to keep up.",
+  alternates: { canonical: "/boys" },
 };
 
 export default function BoysPage({

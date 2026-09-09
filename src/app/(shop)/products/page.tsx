@@ -11,6 +11,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Shop all products",
   description: "Browse the full Vailmora collection — men, women, and boys clothing.",
+  alternates: { canonical: "/products" },
 };
 
 export default async function ProductsPage({
